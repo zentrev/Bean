@@ -1,13 +1,16 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "{B8687609-43A5-1FAC-BC13-C48F987171C0}",
+	"EngineAssociation": "{A1608FE2-4C48-A5A9-ABAD-E4A3CCB2BDA9}",
 	"Category": "",
 	"Description": "",
 	"Modules": [
 		{
 			"Name": "Bean",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
 		}
 	]
 }
