@@ -12,7 +12,7 @@ ABeanPot::ABeanPot()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	PotMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
+	PotMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("PotMesh"));
 	PotMesh->SetupAttachment(RootComponent);
 	PotMesh->BodyInstance.SetResponseToAllChannels(ECR_Overlap);
 
@@ -21,7 +21,7 @@ ABeanPot::ABeanPot()
 		PotMesh->SetStaticMesh(VisualAsset.Object);
 	}
 
-	PlantMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
+	PlantMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("PlantMesh"));
 	PlantMesh->SetupAttachment(RootComponent);
 	PlantMesh->BodyInstance.SetResponseToAllChannels(ECR_Overlap);
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> VisualPotMesh(TEXT("/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere")); //start w healthy plant
