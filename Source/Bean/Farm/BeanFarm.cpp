@@ -2,8 +2,6 @@
 
 
 #include "BeanFarm.h"
-#include "Components/StaticMeshComponent.h"
-#include "UObject/ConstructorHelpers.h"
 
 // Sets default values
 ABeanFarm::ABeanFarm()
@@ -11,19 +9,13 @@ ABeanFarm::ABeanFarm()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	VisualMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
-	VisualMesh->SetupAttachment(RootComponent);
-	VisualMesh->BodyInstance.SetResponseToAllChannels(ECR_Overlap);
-
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> VisualAsset(TEXT("/Game/StarterContent/Shapes/Shape_QuadPyramid.Shape_QuadPyramid"));
-	if (VisualAsset.Succeeded()) {
-		VisualMesh->SetStaticMesh(VisualAsset.Object);
-	}
 }
 
-void ABeanFarm::HarvestBeans()
+void ABeanFarm::AddPot()
 {
-	//Create beans and toss them in the air
+	PotSpawnLocation += PotSpawnOffset;
+//	ABeanPot* SpawnedActor1 = (ABeanPot*)GetWorld()->SpawnActor(ABeanPot::StaticClass(), &PotSpawnLocation, NULL);
+
 }
 
 // Called when the game starts or when spawned

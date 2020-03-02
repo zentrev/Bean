@@ -76,3 +76,55 @@ void ABeanCharacter::TouchStopped(const ETouchIndex::Type FingerIndex, const FVe
 	StopJumping();
 }
 
+void ABeanCharacter::AddBean(int Size)
+{
+	switch (Size)
+	{
+	case 0:
+		SmallBean++;
+	case 1:
+		MediumBean++;
+	case 2:
+		BigBean++;
+	}
+}
+
+bool ABeanCharacter::RemoveBean(int Size)
+{
+	switch (Size)
+	{
+	case 0:
+		if (SmallBean > 0)
+		{
+			SmallBean--;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	case 1:
+		if (MediumBean > 0)
+		{
+			MediumBean--;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	case 2:
+		if (BigBean > 0)
+		{
+			BigBean--;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	default:
+		return false;
+	}
+}
+

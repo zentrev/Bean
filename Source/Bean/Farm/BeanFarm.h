@@ -10,18 +10,21 @@ UCLASS()
 class BEAN_API ABeanFarm : public AActor
 {
 	GENERATED_BODY()
-	
+
 public:	
 	// Sets default values for this actor's properties
 	ABeanFarm();
 
 public:
-	UPROPERTY(VisibleAnywhere) 
-		UStaticMeshComponent* VisualMesh;
+
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BeanFarm")
+	//	TArray<ABeanPot*> BeanPots;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BeanFarm")
-		float GrowRate = 5.0f;
+		FVector PotSpawnLocation;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BeanFarm")
+		FVector PotSpawnOffset;
 	UFUNCTION()
-		void HarvestBeans();
+		void AddPot();
 
 protected:
 	// Called when the game starts or when spawned

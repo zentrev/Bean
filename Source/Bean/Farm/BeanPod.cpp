@@ -4,6 +4,7 @@
 #include "BeanPod.h"
 #include "Components/StaticMeshComponent.h"
 #include "UObject/ConstructorHelpers.h"
+#include <Bean\BeanCharacter.h>
 
 // Sets default values
 ABeanPod::ABeanPod()
@@ -28,11 +29,13 @@ void ABeanPod::BeginPlay()
 void ABeanPod::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	if (OtherActor && OtherActor != this && OtherComp) {
-		/*ASideScrollerCharacter* Character = Cast<ASideScrollerCharacter>(OtherActor);
-		if (Character) {
-			Character->PickUp(5.0f);
-			Destroy();
-		}*/
+		if (OtherActor && OtherActor != this && OtherComp) {
+			ABeanCharacter* Character = Cast<ABeanCharacter>(OtherActor);
+			if (Character) {
+				//Character->PickUp(5.0f);
+				Destroy();
+			}
+		}
 	}
 }
 
