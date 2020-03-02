@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
-#include <Bean\Farm\BeanPod.h>
 #include "BeanCharacter.generated.h"
 
 UCLASS(config=Game)
@@ -19,21 +18,6 @@ class ABeanCharacter : public ACharacter
 	/** Camera boom positioning the camera beside the character */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* CameraBoom;
-
-public:
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Beans")
-		int SmallBean = 0;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Beans")
-		int MediumBean = 0;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Beans")
-		int BigBean = 0;
-
-public:
-	void AddBean(int Size);
-	bool RemoveBean(int Size);
 
 protected:
 
