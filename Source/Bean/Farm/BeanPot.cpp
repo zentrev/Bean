@@ -5,6 +5,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "UObject/ConstructorHelpers.h"
 #include <Bean\BeanCharacter.h>
+#include <Bean\Farm\BeanPod.h>
 
 // Sets default values
 ABeanPot::ABeanPot()
@@ -49,6 +50,7 @@ void ABeanPot::HarvestBeans()
 {
 	for (int i = 0; i < BeanPods; i++) {
 		//Instantiate and throw into the air
+		ABeanPod* SpawnedBean = (ABeanPod*)GetWorld()->SpawnActor(ABeanPod::StaticClass(), &BeanSpawnLocation, NULL);
 	}
 	BeanPods = 0;
 }
