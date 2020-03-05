@@ -1,6 +1,7 @@
 // Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
 
 #include "BeanCharacter.h"
+#include "Beanstalk.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
@@ -126,5 +127,11 @@ bool ABeanCharacter::RemoveBean(int Size)
 	default:
 		return false;
 	}
+}
+
+void ABeanCharacter::PlaceBean()
+{
+	ABeanstalk* m_placedBeanstalk = NewObject<ABeanstalk>();
+	m_placedBeanstalk->OnPlace(GetActorLocation());
 }
 
