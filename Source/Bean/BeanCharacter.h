@@ -34,6 +34,7 @@ public:
 public:
 	void AddBean(int Size);
 	bool RemoveBean(int Size);
+	void PlaceBean();
 
 protected:
 

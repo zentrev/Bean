@@ -12,11 +12,17 @@ ABeanPod::ABeanPod()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-
-	VisualMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
+	VisualMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("PodMesh"));
 	VisualMesh->SetupAttachment(RootComponent);
 	VisualMesh->BodyInstance.SetResponseToAllChannels(ECR_Overlap);
 	VisualMesh->OnComponentBeginOverlap.AddDynamic(this, &ABeanPod::OnOverlapBegin);
+
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> VisualAsset(TEXT("/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere"));
+	if (VisualAsset.Succeeded()) {
+		VisualMesh->SetStaticMesh(VisualAsset.Object);
+	}
+
+	BeanSize = FMath::RandRange(0, 2);
 }
 
 // Called when the game starts or when spawned

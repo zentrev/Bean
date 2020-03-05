@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include <Bean\Farm\BeanPot.h>
 #include "BeanFarm.generated.h"
 
 UCLASS()
@@ -17,8 +18,8 @@ public:
 
 public:
 
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BeanFarm")
-	//	TArray<ABeanPot*> BeanPots;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BeanFarm")
+		TArray<ABeanPot*> BeanPots;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BeanFarm")
 		FVector PotSpawnLocation;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BeanFarm")

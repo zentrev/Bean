@@ -28,6 +28,8 @@ public:
 		float WaterTimerReset = 5.0f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BeanPot")
 		int BeanPods = 0;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BeanFarm")
+		FVector BeanSpawnLocation;
 	UFUNCTION()
 		void WaterBeanPot();
 	UFUNCTION()
