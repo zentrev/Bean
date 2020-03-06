@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
-#include <Bean\Farm\BeanPod.h>
 #include "BeanCharacter.generated.h"
 
 UCLASS(config=Game)
@@ -31,9 +30,12 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Beans")
 		int BigBean = 0;
 
-public:
-	void AddBean(int Size);
-	bool RemoveBean(int Size);
+	UFUNCTION(BlueprintCallable, Category = "Beans")
+		void AddBean(int Size);
+
+	UFUNCTION(BlueprintCallable, Category = "Beans")
+		bool RemoveBean(int Size);
+
 	void PlaceBean();
 
 protected:

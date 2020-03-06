@@ -52,6 +52,7 @@ ABeanCharacter::ABeanCharacter()
 void ABeanCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
 	// set up gameplay key bindings
+	PlayerInputComponent->BindAction("PlaceBean", IE_Pressed, this, &ABeanCharacter::PlaceBean);
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ABeanCharacter::MoveRight);
@@ -133,5 +134,6 @@ void ABeanCharacter::PlaceBean()
 {
 	ABeanstalk* m_placedBeanstalk = NewObject<ABeanstalk>();
 	m_placedBeanstalk->OnPlace(GetActorLocation());
+	UE_LOG(LogTemp, Warning, TEXT("Your message"));
 }
 
