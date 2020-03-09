@@ -7,6 +7,7 @@
 #include "Components/InputComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+/** Changing */
 
 ABeanCharacter::ABeanCharacter()
 {
@@ -132,8 +133,14 @@ bool ABeanCharacter::RemoveBean(int Size)
 
 void ABeanCharacter::PlaceBean()
 {
+	FActorSpawnParameters SpawnParameters;
+
+	ABeanstalk* BeanstalkRef = GetWorld()->SpawnActor<ABeanstalk>(BeanstalkClass, GetTransform(), SpawnParameters);
+
+	/**
 	ABeanstalk* m_placedBeanstalk = NewObject<ABeanstalk>();
 	m_placedBeanstalk->OnPlace(GetActorLocation());
+	*/
 	UE_LOG(LogTemp, Warning, TEXT("Your message"));
 }
 

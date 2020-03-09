@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Beanstalk.h"
 #include "BeanCharacter.generated.h"
 
 UCLASS(config=Game)
@@ -18,6 +19,10 @@ class ABeanCharacter : public ACharacter
 	/** Camera boom positioning the camera beside the character */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* CameraBoom;
+
+	/** Reference to the Beanstalk */
+	UPROPERTY(EditDefaultsOnly, Category = "Beans")
+		TSubclassOf<ABeanstalk> BeanstalkClass;
 
 public:
 
@@ -35,7 +40,8 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Beans")
 		bool RemoveBean(int Size);
-
+	
+	UFUNCTION()
 	void PlaceBean();
 
 protected:
