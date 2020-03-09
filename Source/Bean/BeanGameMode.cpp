@@ -12,4 +12,8 @@ ABeanGameMode::ABeanGameMode()
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
+	else 
+	{
+		UE_LOG(LogTemp, Warning, TEXT("It's Null fool"));
+	}
 }
