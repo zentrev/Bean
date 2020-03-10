@@ -13,6 +13,18 @@ class ABeanGameMode : public AGameModeBase
 
 public:
 	ABeanGameMode();
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Books")
+		int BooksToCollect = 3;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Books")
+		int Books = 0;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Books")
+		FName WinLevel;
+public:
+	UFUNCTION(BlueprintCallable, Category = "Books")
+		void AddBook();
 };
 
 
