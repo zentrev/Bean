@@ -2,6 +2,8 @@
 
 #include "BeanGameMode.h"
 #include "BeanCharacter.h"
+#include "Kismet/GameplayStatics.h"
+
 #include "UObject/ConstructorHelpers.h"
 
 ABeanGameMode::ABeanGameMode()
@@ -15,5 +17,15 @@ ABeanGameMode::ABeanGameMode()
 	else 
 	{
 		UE_LOG(LogTemp, Warning, TEXT("It's Null fool"));
+	}
+}
+
+void ABeanGameMode::AddBook()
+{
+	Books++;
+	if (Books >= BooksToCollect && WinLevel != "")
+	{
+		FLatentActionInfo LatentInfo;
+		UGameplayStatics::LoadStreamLevel(this, WinLevel, true, true, LatentInfo);
 	}
 }

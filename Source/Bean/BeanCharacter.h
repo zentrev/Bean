@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Beanstalk.h"
+#include "Components/AudioComponent.h"
 #include "BeanCharacter.generated.h"
 
 UCLASS(config=Game)
