@@ -21,7 +21,7 @@ public:
 		int Books = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Books")
-		FName WinLevel;
+		FName WinLevel = "EndMenu";
 public:
 	UFUNCTION(BlueprintCallable, Category = "Books")
 		void AddBook();
